@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__ . '/database/db.php';
+require_once __DIR__ . '/app/database/db.php';
+require_once __DIR__ . '/app/Models/Post.php';
 
 $sql = "SELECT `users`.`id`, `users`.`username`, COUNT(`likes`.`post_id`) AS `received_likes`
 FROM users
@@ -34,7 +35,7 @@ $connection->close();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
-<body class="bg-dark">
+<body class="bg-white">
 
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -44,7 +45,7 @@ $connection->close();
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo01">
                     <a href="#">
-                        <img height="85px" style="filter: invert(1);" src="./assets/img/Community_Logo-removebg-preview.png" alt="logo">
+                        <img height="85px" style="filter: invert(1);" src="./app/assets/img/Community_Logo-removebg-preview.png" alt="logo">
                     </a>
                     <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
                         <li class="nav-item">
