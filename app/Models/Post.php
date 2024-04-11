@@ -2,15 +2,8 @@
 
 class Post
 {
-    public $id;
-    public $title;
-    public $media;
-    public $date;
-    public $tags;
-    public $created_at;
-    public $updated_at;
 
-    function __construct(int $id, string $title, Media $media, string $date, string $tags, string $created_at, string $updated_at)
+    function __construct(public int $id, public string $title, public Media $media, public string $date, public string $tags, public string $created_at, public string $updated_at)
     {
         $this->id = $id;
         $this->title = $title;
