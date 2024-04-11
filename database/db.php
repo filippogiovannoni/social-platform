@@ -16,4 +16,4 @@ if ($connection && $connection->connect_error) {
     echo 'Connection Failed: ' . $connection->connect_error;
 }
 
-var_dump($connection);
+// var_dump($connection);
