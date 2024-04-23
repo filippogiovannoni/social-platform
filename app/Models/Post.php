@@ -1,11 +1,12 @@
 <?php
+require_once __DIR__ . '/Media.php';
 
 class Post
 {
 
     public $comments = [];
 
-    function __construct(public int $id, public string $title, public Media $media, public string $date, public string $tags, public string $created_at, public string $updated_at)
+    function __construct(public int $id, public string $title, public Media $media, public string $date, public array $tags, public string $created_at, public string $updated_at)
     {
         $this->id = $id;
         $this->title = $title;
