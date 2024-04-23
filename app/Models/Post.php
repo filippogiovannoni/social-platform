@@ -21,3 +21,5 @@ class Post
         $this->comments[] = $comment;
     }
 };
+
+$post1 = new Post(1, 'Viaggio al Mare', new Media(1, 'Video', 'jdnfnkdfnd', 1024), '23/04/2024', ['sole', 'mare'], '23/04/2024', '23/04/2024');

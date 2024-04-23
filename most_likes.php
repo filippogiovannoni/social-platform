@@ -1,30 +1,16 @@
 <?php
-require_once __DIR__ . '/app/database/db.php';
-require_once __DIR__ . '/app/Models/Post.php';
+require_once __DIR__ . '/app/Models/DB.php';
+require_once __DIR__ . '/./config.php';
 require_once __DIR__ . '/app/layouts/head.php';
-require_once __DIR__ . '/app/layouts/header.php';
 
-$sql = "SELECT `users`.`id`, `users`.`username`, COUNT(`likes`.`post_id`) AS `received_likes`
-FROM users
-JOIN likes 
-ON `users`.`id` = `likes`.`user_id`
-GROUP BY `users`.`id`
-ORDER BY `received_likes` DESC";
+$db = new DB(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-$result = $connection->query($sql);
+$results = $db->getResults();
 
-// var_dump($result);
-
-if ($result && $result->num_rows > 0) {
-    // while ($row = $result->fetch_assoc()) {
-    //     // var_dump($row);
-    // }
-}
-
-$connection->close();
 ?>
 
 <body class="bg-dark">
+    <?php require_once __DIR__ . '/app/layouts/header.php'; ?>
 
     <main>
         <div class="container">
@@ -38,8 +24,8 @@ $connection->close();
                 </thead>
                 <tbody>
 
-                    <?php while ($row = $result->fetch_assoc()) :
-                        ['id' => $id, 'username' => $username, 'received_likes' => $received_likes] = $row; ?>
+                    <?php foreach ($results as $result) :
+                        ['id' => $id, 'username' => $username, 'received_likes' => $received_likes] = $result; ?>
 
                         <tr>
                             <th scope="row"><?= $id ?></th>
@@ -47,7 +33,7 @@ $connection->close();
                             <td style="width: 33%;"><?= $received_likes ?></td>
                         </tr>
 
-                    <?php endwhile; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
