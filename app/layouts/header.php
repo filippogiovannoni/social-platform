@@ -8,6 +8,7 @@
                 <a href="#">
                     <img height="85px" style="filter: invert(1);" src="./app/assets/img/Community_Logo-removebg-preview.png" alt="logo">
                 </a>
+                <input class="text-center form-control border-0 w-25 fst-italic" type="search" name="searcg" id="search" placeholder="Search here users">
                 <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="index.php">Home</a>
