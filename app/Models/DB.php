@@ -34,4 +34,23 @@ class DB
 
         return $results;
     }
+    public function getPosts()
+    {
+        $sql =  "SELECT `users`.`username` AS `username`, `posts`.`title`, `posts`.`tags`, `posts`.`date`, COUNT(`likes`.`post_id`) AS likes
+        FROM `posts`
+        JOIN `users` ON `posts`.`user_id` = `users`.`id`
+        LEFT JOIN `likes` ON `posts`.`id` = `likes`.`post_id`
+        GROUP BY `posts`.`id`";
+
+
+        $result = $this->connection->query($sql);
+
+        // Create an array for query results
+        $posts = [];
+        while ($row = $result->fetch_assoc()) {
+            $posts[] = $row;
+        }
+
+        return $posts;
+    }
 }
