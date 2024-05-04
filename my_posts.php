@@ -35,17 +35,9 @@ $posts = [$post1, $post2];
                                 </span>
                                 <img style="aspect-ratio: 3/4; object-fit:cover;" src="<?= $post->media->path ?>" class="card-img-top py-3" alt="post_image">
 
-                                <div class="buttons fs-3 d-flex gap-3 pb-2">
-                                    <a href="">
-                                        <i class="fa-regular fa-heart text-black"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-regular fa-comment text-black"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-regular fa-share-from-square text-black"></i>
-                                    </a>
-                                </div>
+                                <?php require_once __DIR__ . '/app/partials/buttons.php' ?>
+
+                                <?php require_once __DIR__ . '/app/partials/modal.php' ?>
 
                                 <span class="fw-bold">
                                     <?= $post->user ?>
